@@ -8,11 +8,11 @@ load_dotenv()
 
 MONGODB_USERNAME = os.getenv('MONGODB_USERNAME')
 MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
-MONGODB_URL = 'mongodb://db:27017/'
+MONGODB_URL = os.getenv('MONGODB_URL')
 
-print(MONGODB_URL)
+
 SERVER_URL = os.getenv('SERVER_URL')
-print(SERVER_URL)
+
 
 def save_file(file):
     with file.open(mode='rb') as f:
@@ -28,6 +28,7 @@ def save_file(file):
 client = pymongo.MongoClient(MONGODB_URL)
 db = client["movies"]
 collection = db["movies"]
+
 def save_data_mongodb(data):
     item = collection.insert_one(data) 
     id_ = item.inserted_id
