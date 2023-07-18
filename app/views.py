@@ -29,14 +29,16 @@ def index(request):
             picture_file = request.FILES.get('picture')
             if video_file:
                 video_url = save_file(video_file)
+                print('VIdeo saved',video_url)
                 
             if picture_file:
                 picture_url = save_file(picture_file)
-                
+                print('Picture saved',picture_url)
                 object_id = save_data_mongodb({
                     'video':video_url,
                     'picture':picture_url
                 })
+                print('Saved data to mongo db')
                 context = {
                     'name': name,
                     'date': date,
