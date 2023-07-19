@@ -1,7 +1,7 @@
 
 ## Prerequisites
 
-To run this FastAPI application using Docker, you need to have the following software installed on your machine:
+To run this  application using Docker, you need to have the following software installed on your machine:
 
 - Docker
 
@@ -9,7 +9,7 @@ If you don't have Docker installed, you can download and install it from the [of
 
 ## Getting Started
 
-To run the FastAPI application on your local machine, follow these steps:
+To run the application on your local machine, follow these steps:
 
 1. Clone this repository to your local machine or download the ZIP file and extract it.
 
