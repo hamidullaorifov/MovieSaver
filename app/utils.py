@@ -25,11 +25,12 @@ def save_file(file):
         return file_url
     
 
-client = pymongo.MongoClient(MONGODB_URL)
-db = client["movies"]
-collection = db["movies"]
+
 
 def save_data_mongodb(data):
+    client = pymongo.MongoClient(MONGODB_URL)
+    db = client["movies"]
+    collection = db["movies"]
     item = collection.insert_one(data) 
     id_ = item.inserted_id
     return id_
