@@ -29,5 +29,5 @@ docker-compose up --build
 ```
 This command will build the necessary images and start the containers in detached mode.
 
-4. Once the containers are running, you can access the FastAPI application by opening your web browser and navigating to http://localhost:8000.
+4. Once the containers are running, you can access the application by opening your web browser and navigating to http://localhost:8000.
 
