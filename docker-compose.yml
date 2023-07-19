@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  django:
+    build: .
+    ports:
+      - 8000:8000
+    environment:
+      - SERVER_URL=https://filesaver.hamidullaorifov.repl.co/upload/
+      - MONGODB_URL=mongodb://mongodb:27017/
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017/
