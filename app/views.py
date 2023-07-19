@@ -23,30 +23,30 @@ def index(request):
         name = data.get('name')
         date = data.get('date')
         description = data.get('description')
+        context = {
+            'name': name,
+            'date': date,
+            'description': description,
+        }
         if form.is_valid():
             movie = form.save()
             video_file = request.FILES.get('video')
             picture_file = request.FILES.get('picture')
             if video_file:
                 video_url = save_file(video_file)
+                context['video'] = video_url
                 print('VIdeo saved',video_url)
                 
             if picture_file:
                 picture_url = save_file(picture_file)
+                context['picture'] = picture_url
                 print('Picture saved',picture_url)
                 object_id = save_data_mongodb({
                     'video':video_url,
                     'picture':picture_url
                 })
                 print('Saved data to mongo db')
-                context = {
-                    'name': name,
-                    'date': date,
-                    'description': description,
-                    'object_id':object_id,
-                    'video':video_url,
-                    'picture':picture_url
-                }
+                context['object_id'] = object_id
         return render(request,'app/result.html',context)
         
 
